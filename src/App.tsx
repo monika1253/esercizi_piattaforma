@@ -1,5 +1,6 @@
 import { Hello } from "./Hello";
 import { Welcome } from "./Welcome";
+import { Counter } from "./Counter";
 
 export function App() {
   return (
@@ -11,6 +12,7 @@ export function App() {
       <Welcome name="John" age={66} />
       <Welcome name="John" age={25} />
       <Welcome name="Alex" />
+      <Counter initialValue={0} step={1} />
     </div>
   );
 }
