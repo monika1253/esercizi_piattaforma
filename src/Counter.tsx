@@ -14,7 +14,7 @@ e renderizzalo all'interno del componente Counter, passandogli la variabile di s
 Il pulsante per decrementare dovrebbe decrementare il contatore della quantità passata come prop, 
 e il pulsante per resettare dovrebbe riportare il contatore al valore iniziale passato come prop.
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CounterDisplay from "./CounterDisplay";
 
 interface CounterProps {
@@ -24,6 +24,11 @@ interface CounterProps {
 
 export function Counter({ initialValue = 0, step = 1 }: CounterProps) {
   const [counter, setCounter] = useState(initialValue);
+
+  //effetto collaterale per stampare il valore del contatore ogni volta che cambia
+  useEffect(() => {
+    console.log("Valore corrente del contatore:", counter);
+  }, [counter]);
 
   function handleIncrement() {
     setCounter((prev) => prev + step);
