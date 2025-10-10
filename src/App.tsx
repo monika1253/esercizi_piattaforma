@@ -2,19 +2,22 @@ import { Hello } from "./Hello";
 import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import { Clock } from "./Clock";
+import { MouseClicker } from "./MouseClicker";
+import { MultiButton } from "./MultiButton";
 
 export function App() {
   return (
     <div>
       <Hello />
       <Hello /> {/*esempio uso multiplo */}
-      <Welcome name="Monika" age={27} />
-      <Welcome name="Anna" age={10} />
-      <Welcome name="John" age={66} />
-      <Welcome name="John" age={25} />
-      <Welcome name="Alex" />
       <Counter initialValue={0} step={2} />
       <Clock />
+      <h1>
+        {" "}
+        Gestione degli eventi
+        <MouseClicker />
+        <MultiButton />
+      </h1>
     </div>
   );
 }
