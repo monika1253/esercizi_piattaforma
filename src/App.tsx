@@ -4,12 +4,14 @@ import { Counter } from "./Counter";
 import { Clock } from "./Clock";
 import { MouseClicker } from "./MouseClicker";
 import { MultiButton } from "./MultiButton";
+import { UncontrolledLogin } from "./UncontrolledLogin";
 
 export function App() {
   return (
     <div>
       <Hello />
       <Hello /> {/*esempio uso multiplo */}
+      <Welcome name="Monika" />
       <Counter initialValue={0} step={2} />
       <Clock />
       <h1>
@@ -18,6 +20,10 @@ export function App() {
         <MouseClicker />
         <MultiButton />
       </h1>
+      <h2>
+        Uncontrolled Login
+        <UncontrolledLogin />
+      </h2>
     </div>
   );
 }
