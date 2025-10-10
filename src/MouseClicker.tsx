@@ -29,7 +29,6 @@ export function MouseClicker() {
   };
 
   const handleImageClick = (event: BaseSyntheticEvent) => {
-    event.stopPropagation();
     console.log("image:", event.currentTarget.src);
   };
   return (
@@ -38,7 +37,6 @@ export function MouseClicker() {
         src="https://commons.wikimedia.org/wiki/File:React-icon.svg"
         height={24}
         width={24}
-        onClick={handleImageClick}
       />
       Click me!
     </button>

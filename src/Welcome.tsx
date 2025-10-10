@@ -19,6 +19,7 @@ export function Welcome({ name, age }: WelcomeProps) {
       {age !== undefined && <Age age={age} />}
 
       {age !== undefined && <Message age={age} />}
+      <h2>Welcome, {name || "guest"}!</h2>
     </div>
   );
 }

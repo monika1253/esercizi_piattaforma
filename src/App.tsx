@@ -5,25 +5,45 @@ import { Clock } from "./Clock";
 import { MouseClicker } from "./MouseClicker";
 import { MultiButton } from "./MultiButton";
 import { UncontrolledLogin } from "./UncontrolledLogin";
+import { InteractiveWelcome } from "./InteractiveWelcome";
+import Login from "./Login";
 
-export function App() {
+function App() {
+  const handleLogin = (data: {
+    username: string;
+    password: string;
+    remember: boolean;
+  }) => {
+    console.log("Login data", data);
+    alert(`Logged in as ${data.username} (remember: ${data.remember})`);
+  };
+
   return (
     <div>
-      <Hello />
-      <Hello /> {/*esempio uso multiplo */}
-      <Welcome name="Monika" />
-      <Counter initialValue={0} step={2} />
-      <Clock />
-      <h1>
-        {" "}
-        Gestione degli eventi
-        <MouseClicker />
-        <MultiButton />
-      </h1>
-      <h2>
-        Uncontrolled Login
-        <UncontrolledLogin />
-      </h2>
+      <div>
+        <Hello />
+        <Hello /> {/*esempio uso multiplo */}
+        <Welcome name="Monika" />
+        <Welcome name="ennio" age={20} />
+        <Counter />
+        <Clock />
+        <h1>
+          Gestione degli eventi
+          <MouseClicker />
+          <MultiButton />
+        </h1>
+        <h2>
+          Uncontrolled Login
+          <UncontrolledLogin />
+        </h2>
+      </div>
+      <div>
+        <h1>Interactive Welcome</h1>
+        <InteractiveWelcome />
+
+        <h1>Login Form</h1>
+        <Login onLogin={handleLogin} />
+      </div>
     </div>
   );
 }
