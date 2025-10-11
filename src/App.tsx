@@ -10,6 +10,7 @@ import Login from "./Login";
 import FocusableInput from "./FocusableInput";
 import FirstModeEffect from "./FirstModeEffect";
 import Counter2 from "./Counter2";
+import Colors from "./Colors";
 
 function App() {
   const handleLogin = (data: {
@@ -20,6 +21,12 @@ function App() {
     console.log("Login data", data);
     alert(`Logged in as ${data.username} (remember: ${data.remember})`);
   };
+
+  const colorList = [
+    { id: 1, name: "red" },
+    { id: 2, name: "green" },
+    { id: 3, name: "blue" },
+  ];
 
   return (
     <div>
@@ -52,6 +59,10 @@ function App() {
         <FocusableInput />
         <FirstModeEffect />
         <Counter2 initialValue={0} />
+      </div>
+      <div>
+        <h1>Lista Colori</h1>
+        <Colors items={colorList} />
       </div>
     </div>
   );
