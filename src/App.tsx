@@ -7,6 +7,9 @@ import { MultiButton } from "./MultiButton";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import Login from "./Login";
+import FocusableInput from "./FocusableInput";
+import FirstModeEffect from "./FirstModeEffect";
+import Counter2 from "./Counter2";
 
 function App() {
   const handleLogin = (data: {
@@ -43,6 +46,12 @@ function App() {
 
         <h1>Login Form</h1>
         <Login onLogin={handleLogin} />
+      </div>
+      <div>
+        <h1>useRef Examples</h1>
+        <FocusableInput />
+        <FirstModeEffect />
+        <Counter2 initialValue={0} />
       </div>
     </div>
   );
