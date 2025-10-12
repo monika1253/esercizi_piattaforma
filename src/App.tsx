@@ -11,6 +11,7 @@ import FocusableInput from "./FocusableInput";
 import FirstModeEffect from "./FirstModeEffect";
 import Counter2 from "./Counter2";
 import Colors from "./Colors";
+import TodoList from "./TodoList";
 
 function App() {
   const handleLogin = (data: {
@@ -63,6 +64,10 @@ function App() {
       <div>
         <h1>Lista Colori</h1>
         <Colors items={colorList} />
+      </div>
+      <div>
+        <h1>La mia App todo</h1>
+        <TodoList />
       </div>
     </div>
   );
