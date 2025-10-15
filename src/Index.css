@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding: 30px;
+}
+.welcome {
+  background-color: yellow;
+  border: 5px solid black;
+  padding: 1rem;
+}

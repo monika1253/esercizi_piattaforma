@@ -42,3 +42,9 @@
   color: white;
   border: none;
 }
+.login-btn.valid {
+  background-color: green;
+}
+.login-btn.invalid {
+  background-color: red;
+}

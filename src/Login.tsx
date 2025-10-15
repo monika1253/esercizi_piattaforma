@@ -26,9 +26,12 @@ function Login({ onLogin }: LoginProps) {
 
   const isLoginDisabled = username.trim() === "" || password.trim() === "";
 
+  const dynamicLoginBtnClass =
+    password.length >= 8 ? "login-btn valid" : "login-btn invalid";
+
   return (
-    <div>
-      <div>
+    <div className="login-container">
+      <div className="form-group">
         <input
           type="text"
           placeholder="Username"
@@ -36,7 +39,7 @@ function Login({ onLogin }: LoginProps) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div>
+      <div className="form-group">
         <input
           type="password"
           placeholder="Password"
@@ -44,7 +47,7 @@ function Login({ onLogin }: LoginProps) {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div>
+      <div className="form-group checkbox-group">
         <label>
           <input
             type="checkbox"
@@ -53,11 +56,19 @@ function Login({ onLogin }: LoginProps) {
           />
           Remember me
         </label>
-        <div>
-          <button onClick={handleLogin} disabled={isLoginDisabled}>
+        <div className="form-buttons">
+          <button
+            onClick={handleLogin}
+            disabled={isLoginDisabled}
+            className={`btn login-btn ${
+              password.length >= 8 ? "valid" : "invalid"
+            }`}
+          >
             Login
           </button>
-          <button onClick={handleReset}>Reset</button>
+          <button onClick={handleReset} className="btn reset-btn">
+            Reset
+          </button>
         </div>
       </div>
     </div>

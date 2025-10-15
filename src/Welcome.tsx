@@ -9,7 +9,7 @@ type WelcomeProps = {
 export function Welcome({ name, age }: WelcomeProps) {
   return (
     <div>
-      <p>
+      <p className="welcome">
         Welcome, <strong>{name}</strong>!
       </p>
       {age !== undefined && age > 18 && <Age age={age} />}
@@ -23,3 +23,7 @@ export function Welcome({ name, age }: WelcomeProps) {
     </div>
   );
 }
+
+export const welcome = () => {
+  return <div className="welcome">Benvenuto!</div>;
+};

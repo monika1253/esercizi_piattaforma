@@ -37,7 +37,9 @@ function App() {
         <Hello /> {/*esempio uso multiplo */}
         <Welcome name="Monika" />
         <Welcome name="ennio" age={20} />
-        <Counter />
+        <div style={{ color: "blue", fontSize: "2rem" }}>
+          <Counter />
+        </div>
         <Clock />
         <h1>
           Gestione degli eventi
