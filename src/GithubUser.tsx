@@ -47,9 +47,16 @@ function GithubUser({ username }: GithubUserProps) {
 
   return (
     <div
-      style={{ border: "1px solid #ccc", padding: "1rem", marginTop: "1rem" }}
+      style={{
+        border: "1px solid #ccc",
+        padding: "1rem",
+        marginTop: "1rem",
+        width: "250px",
+      }}
     >
       <img src={user.avatar_url} alt={`${user.login} avatar`} width={100} />
+      <h3>{user.name || user.login}</h3>
+      <p>Login: {user.login}</p>
     </div>
   );
 }

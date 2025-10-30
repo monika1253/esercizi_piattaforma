@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GithubUser from "./GithubUser";
+import { Link } from "react-router-dom";
 
 interface User {
   login: string;
@@ -37,6 +38,9 @@ function GithubUsers() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
+            <Link to={`/users/${user.login}`} style={{ cursor: "pointer" }}>
+              {user.login}
+            </Link>
             <button
               onClick={() => setSelectedUser(user.login)}
               style={{ cursor: "pointer" }}

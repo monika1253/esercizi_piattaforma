@@ -13,8 +13,10 @@ import Counter2 from "./Counter2";
 import Colors from "./Colors";
 import TodoList from "./TodoList";
 import GithubUsers from "./GithubUsers";
+import ShowGithubUser from "./ShowGithubUser";
+import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
 
-function App() {
+export default function App() {
   const handleLogin = (data: {
     username: string;
     password: string;
@@ -31,67 +33,73 @@ function App() {
   ];
 
   return (
-    <div>
-      <div>
-        <Hello />
-        <Hello /> {/*esempio uso multiplo */}
-        <Welcome name="Monika" />
-        <Welcome name="ennio" age={20} />
-        <div style={{ color: "blue", fontSize: "2rem" }}>
-          <Counter />
-        </div>
-        <Clock />
-        <h1>
-          Gestione degli eventi
-          <MouseClicker />
-          <MultiButton />
-        </h1>
-        <h2>
-          Uncontrolled Login
-          <UncontrolledLogin />
-        </h2>
-      </div>
-      <div>
-        <h1>Interactive Welcome</h1>
-        <InteractiveWelcome />
+    <BrowserRouter>
+      <nav style={{ marginBottom: "1rem" }}>
+        <Link to="/" style={{ marginRight: "1rem" }}>
+          Home
+        </Link>
+        <Link to="/counter" style={{ marginRight: "1rem" }}>
+          Counter
+        </Link>
+        <Link to="/users">Github Users</Link>
+      </nav>
 
-        <h1>Login Form</h1>
-        <Login onLogin={handleLogin} />
-      </div>
-      <div>
-        <h1>useRef Examples</h1>
-        <FocusableInput />
-        <FirstModeEffect />
-        <Counter2 initialValue={0} />
-      </div>
-      <div>
-        <h1>Lista Colori</h1>
-        <Colors items={colorList} />
-      </div>
-      <div>
-        <h1>La mia App todo</h1>
-        <TodoList />
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <div>
+                <Hello />
+                <Hello /> {/* esempio uso multiplo */}
+                <Welcome name="Monika" />
+                <Welcome name="Ennio" age={20} />
+                <div style={{ color: "blue", fontSize: "2rem" }}>
+                  <Counter />
+                </div>
+                <Clock />
+                <h1>
+                  Gestione degli eventi
+                  <MouseClicker />
+                  <MultiButton />
+                </h1>
+                <h2>
+                  Uncontrolled Login
+                  <UncontrolledLogin />
+                </h2>
+              </div>
+              <div>
+                <h1>Interactive Welcome</h1>
+                <InteractiveWelcome />
+                <h1>Login Form</h1>
+                <Login onLogin={handleLogin} />
+              </div>
+              <div>
+                <h1>useRef Examples</h1>
+                <FocusableInput />
+                <FirstModeEffect />
+                <Counter2 initialValue={0} />
+              </div>
+              <div>
+                <h1>Lista Colori</h1>
+                <Colors items={colorList} />
+              </div>
+              <div>
+                <h1>La mia App todo</h1>
+                <TodoList />
+              </div>
+            </div>
+          }
+        />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/users" element={<Outlet />}>
+          <Route index element={<p>Aggiungi un utente e selezionalo</p>} />
+          <Route path="" element={<GithubUsers />} />
+          <Route path=":username" element={<ShowGithubUser />} />
+        </Route>
 
-      <div style={{ padding: "2rem" }}>
-        <GithubUsers />
-      </div>
-    </div>
+        <Route path="*" element={<p>404 Not Found</p>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-export default App;
-/*
--Puoi utilizzare il componente Hello più di una volta nel componente App? Cosa succede se lo fai?
-Sì, puoi usarlo più volte. Ogni volta che usi <Hello />, React renderizza un'altra istanza di quel componente, quindi vedrai il contenuto duplicato nel DOM. 
--Puoi renderizzare il componente Message direttamente all'interno del componente App? Cosa succede se lo fai?
-Sì, puoi farlo. Message è un componente come gli altri, quindi puoi usarlo ovunque, non solo all'interno di Hello.
-es: import { Hello, Message } from "./Hello";
-
-export function App() {
-  return (
-    <div>
-      <Hello />
-      <Message />
-    </div>
-  );
-}*/
