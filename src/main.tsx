@@ -53,3 +53,5 @@ Se esiste una Route per /users/:username, rimuovila dal componente App
 e aggiungi una nuova route annidata all'interno della route /users.
 -Aggiungi una route di indice alla route GithubUsers, che mostra il messaggio "Aggiungi un utente e selezionalo".
  */
+
+/*Scrivi un test per il componente Welcome dell'esercizio props */
